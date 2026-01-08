@@ -418,7 +418,7 @@ function calculateCoursePrice() {
 
     const earlyReg = isEarlyRegistration(startDate);
     const groupEnroll = persons >= 5;
-    const intensive = course.week_length > 20;
+    const intensive = course.week_length >= 5;
 
     document.getElementById('earlyRegistration').checked = earlyReg;
     document.getElementById('groupEnrollment').checked = groupEnroll;
@@ -577,6 +577,11 @@ function renderTutors() {
         const tr = document.createElement('tr');
         tr.dataset.tutorId = tutor.id;
         tr.innerHTML = `
+            <td>
+                <div class="tutor-photo-placeholder">
+                    <i class="bi bi-person-circle"></i>
+                </div>
+            </td>
             <td>${tutor.name}</td>
             <td><span class="badge level-badge
                 ${getLevelBadgeClass(tutor.language_level)}">
