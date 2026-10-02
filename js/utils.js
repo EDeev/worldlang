@@ -1,7 +1,7 @@
 // Экранирование данных перед вставкой в HTML (данные приходят из общего учебного API);
 // utils.js подключается раньше app.js, account.js и map.js, поэтому esc() доступна во всех них
 function esc(value) {
-    return String(value ?? '')
+    return String(value === null || value === undefined ? '' : value)
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
