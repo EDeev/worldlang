@@ -109,12 +109,12 @@ function initMap() {
                 const placemark = new ymaps.Placemark(
                     resource.coords,
                     {
-                        balloonContentHeader: `<strong>${resource.name}</strong>`,
+                        balloonContentHeader: `<strong>${esc(resource.name)}</strong>`,
                         balloonContentBody: `
-                            <p class="mb-1"><i class="bi bi-geo-alt"></i> ${resource.address}</p>
-                            <p class="mb-1"><i class="bi bi-clock"></i> ${resource.hours}</p>
-                            <p class="mb-1"><i class="bi bi-telephone"></i> ${resource.phone}</p>
-                            <p class="mb-0"><i class="bi bi-info-circle"></i> ${resource.description}</p>
+                            <p class="mb-1"><i class="bi bi-geo-alt"></i> ${esc(resource.address)}</p>
+                            <p class="mb-1"><i class="bi bi-clock"></i> ${esc(resource.hours)}</p>
+                            <p class="mb-1"><i class="bi bi-telephone"></i> ${esc(resource.phone)}</p>
+                            <p class="mb-0"><i class="bi bi-info-circle"></i> ${esc(resource.description)}</p>
                         `,
                         hintContent: resource.name
                     },
@@ -130,11 +130,11 @@ function initMap() {
                     const item = document.createElement('div');
                     item.className = 'resource-item';
                     item.innerHTML = `
-                        <h6>${resource.name}</h6>
-                        <p class="mb-1"><i class="bi bi-geo-alt me-1"></i>${resource.address}</p>
-                        <p class="mb-1"><i class="bi bi-clock me-1"></i>${resource.hours}</p>
-                        <p class="mb-1"><i class="bi bi-telephone me-1"></i>${resource.phone}</p>
-                        <p class="mb-0 text-muted small">${resource.description}</p>
+                        <h6>${esc(resource.name)}</h6>
+                        <p class="mb-1"><i class="bi bi-geo-alt me-1"></i>${esc(resource.address)}</p>
+                        <p class="mb-1"><i class="bi bi-clock me-1"></i>${esc(resource.hours)}</p>
+                        <p class="mb-1"><i class="bi bi-telephone me-1"></i>${esc(resource.phone)}</p>
+                        <p class="mb-0 text-muted small">${esc(resource.description)}</p>
                     `;
 
                     item.addEventListener('click', () => {

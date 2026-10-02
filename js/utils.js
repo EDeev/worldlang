@@ -1,3 +1,14 @@
+// Экранирование данных перед вставкой в HTML (данные приходят из общего учебного API);
+// utils.js подключается раньше app.js, account.js и map.js, поэтому esc() доступна во всех них
+function esc(value) {
+    return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
 // Показать уведомление с автоматическим удалением
 function showNotification(message, type = 'info') {
     const notificationArea = document.getElementById('notificationArea');
@@ -24,8 +35,8 @@ function showNotification(message, type = 'info') {
     notification.className = `alert ${alertClass} alert-dismissible
                              fade show notification`;
     notification.innerHTML = `
-        <i class="bi ${iconClass} me-2"></i>
-        ${message}
+        <i class="bi ${esc(iconClass)} me-2"></i>
+        ${esc(message)}
         <button type="button" class="btn-close"
                 data-bs-dismiss="alert"></button>
     `;

@@ -118,13 +118,13 @@ function renderOrders() {
                 c => c.id === order.course_id
             );
             orderName = course ? course.name : 
-                       `Курс #${order.course_id}`;
+                       `Курс #${esc(order.course_id)}`;
         } else if (order.tutor_id && order.tutor_id > 0) {
             const tutor = AccountState.tutors.find(
                 t => t.id === order.tutor_id
             );
             orderName = tutor ? `Репетитор: ${tutor.name}` : 
-                       `Репетитор #${order.tutor_id}`;
+                       `Репетитор #${esc(order.tutor_id)}`;
         }
 
         const orderDate = formatDateTimeWithoutSeconds(
@@ -133,22 +133,22 @@ function renderOrders() {
         );
 
         tr.innerHTML = `
-            <td>${orderNumber}</td>
-            <td>${orderName}</td>
-            <td>${orderDate}</td>
+            <td>${esc(orderNumber)}</td>
+            <td>${esc(orderName)}</td>
+            <td>${esc(orderDate)}</td>
             <td>${formatPrice(order.price)}</td>
             <td>
                 <div class="btn-group btn-group-sm" role="group">
                     <button class="btn btn-info view-order-btn" 
-                            data-order-id="${order.id}">
+                            data-order-id="${esc(order.id)}">
                         <i class="bi bi-eye"></i>
                     </button>
                     <button class="btn btn-warning edit-order-btn" 
-                            data-order-id="${order.id}">
+                            data-order-id="${esc(order.id)}">
                         <i class="bi bi-pencil"></i>
                     </button>
                     <button class="btn btn-danger delete-order-btn" 
-                            data-order-id="${order.id}">
+                            data-order-id="${esc(order.id)}">
                         <i class="bi bi-trash"></i>
                     </button>
                 </div>
@@ -254,7 +254,7 @@ function viewOrderDetails(orderId) {
         if (course) {
             orderTitle = course.name;
             teacherInfo = `<p><strong>Преподаватель:</strong> 
-                          ${course.teacher}</p>`;
+                          ${esc(course.teacher)}</p>`;
         }
     } else if (order.tutor_id && order.tutor_id > 0) {
         const tutor = AccountState.tutors.find(
@@ -284,7 +284,7 @@ function viewOrderDetails(orderId) {
         options.push('Доступ к интерактивной онлайн-платформе (+50%)');
 
     const optionsBadges = options.map(opt => 
-        `<span class="badge bg-secondary me-1 mb-1">${opt}</span>`
+        `<span class="badge bg-secondary me-1 mb-1">${esc(opt)}</span>`
     ).join('');
 
     const contactData = ContactDataStorage.get(order.id);
@@ -294,16 +294,16 @@ function viewOrderDetails(orderId) {
         contactInfo = `
             <hr>
             <h6>Контактные данные:</h6>
-            <p><strong>Имя:</strong> ${contactData.name}</p>
-            <p><strong>Телефон:</strong> ${contactData.phone}</p>
-            <p><strong>Email:</strong> ${contactData.email}</p>
+            <p><strong>Имя:</strong> ${esc(contactData.name)}</p>
+            <p><strong>Телефон:</strong> ${esc(contactData.phone)}</p>
+            <p><strong>Email:</strong> ${esc(contactData.email)}</p>
             ${contactData.message ? 
               `<p><strong>Сообщение:</strong> ${contactData.message}</p>` 
               : ''}
         `;
     }
 
-    let detailsHTML = `<h5>${orderTitle}</h5>${teacherInfo}`;
+    let detailsHTML = `<h5>${esc(orderTitle)}</h5>${teacherInfo}`;
     let priceLabel = '';
 
     if (order.course_id && order.course_id > 0) {
@@ -312,9 +312,9 @@ function viewOrderDetails(orderId) {
                ${formatDate(order.date_start)}</p>
             <p><strong>Время:</strong> ${formatTime(order.time_start)}</p>
             <p><strong>Продолжительность:</strong>
-               ${order.duration} часов</p>
+               ${esc(order.duration)} часов</p>
             <p><strong>Количество студентов:</strong>
-               ${order.persons}</p>
+               ${esc(order.persons)}</p>
             ${options.length > 0 ?
               `<p><strong>Выбранные опции:</strong><br>${optionsBadges}</p>`
               : ''}
@@ -328,9 +328,9 @@ function viewOrderDetails(orderId) {
     }
 
     detailsHTML += `
-        ${contactInfo}
+        ${esc(contactInfo)}
         <hr>
-        <h5>${priceLabel}</h5>
+        <h5>${esc(priceLabel)}</h5>
     `;
 
     content.innerHTML = detailsHTML;

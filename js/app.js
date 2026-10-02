@@ -163,7 +163,7 @@ function renderCourses() {
         
         item.innerHTML = `
             <div class="course-item-header">
-                <h5 class="course-item-title">${course.name}</h5>
+                <h5 class="course-item-title">${esc(course.name)}</h5>
                 <span class="badge level-badge 
                       ${getLevelBadgeClass(course.level)}">
                     ${getLevelText(course.level)}
@@ -175,12 +175,12 @@ function renderCourses() {
             <div class="course-item-details">
                 <div>
                     <i class="bi bi-person"></i>
-                    <span>${course.teacher}</span>
+                    <span>${esc(course.teacher)}</span>
                 </div>
                 <div>
                     <i class="bi bi-clock"></i>
-                    <span>${course.total_length} недель, 
-                          ${course.week_length} ч/нед</span>
+                    <span>${esc(course.total_length)} недель, 
+                          ${esc(course.week_length)} ч/нед</span>
                 </div>
                 <div>
                     <i class="bi bi-cash"></i>
@@ -582,13 +582,13 @@ function renderTutors() {
                     <i class="bi bi-person-circle"></i>
                 </div>
             </td>
-            <td>${tutor.name}</td>
+            <td>${esc(tutor.name)}</td>
             <td><span class="badge level-badge
                 ${getLevelBadgeClass(tutor.language_level)}">
                 ${getLevelText(tutor.language_level)}
             </span></td>
             <td>${tutor.languages_offered.join(', ')}</td>
-            <td>${tutor.work_experience} лет</td>
+            <td>${esc(tutor.work_experience)} лет</td>
             <td>${formatPrice(tutor.price_per_hour)}/час</td>
             <td>
                 <button class="btn btn-sm btn-primary select-tutor-btn">
