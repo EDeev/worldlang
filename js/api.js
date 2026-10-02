@@ -1,5 +1,8 @@
 const API_CONFIG = {
-    baseUrl: 'http://exam-api-courses.std-900.ist.mospolytech.ru/api',
+    // На сайте nginx проксирует учебный API под тем же доменом (иначе HTTPS-страница блокирует
+    // запросы к HTTP-API как mixed content). Для запуска с локального диска — полный адрес:
+    // http://exam-api-courses.std-900.ist.mospolytech.ru/api
+    baseUrl: '/api',
     apiKey: '358a63a5-52ae-4ab0-800b-90f75ce5a5c2'
 };
 
