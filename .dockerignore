@@ -1,0 +1,6 @@
+.git
+.github
+docs
+*.md
+.eslintrc.json
+.htmlhintrc

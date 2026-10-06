@@ -3,6 +3,7 @@
 [Русский](README.md) · **English**
 
 [![CI](https://github.com/EDeev/worldlang/actions/workflows/ci.yml/badge.svg)](https://github.com/EDeev/worldlang/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/EDeev/worldlang)](https://github.com/EDeev/worldlang/releases)
 
 Exam project for the "Web Technologies Basics" course: an online language school site with a course and
 tutor catalog, applications, a personal account and a map of learning places, built on the course API.
@@ -27,6 +28,9 @@ API at `/api`. To run from disk, put the full API URL (given in a comment) into 
 `index.html`.
 
 Checks: `node --check js/*.js` and `npx htmlhint *.html` (rules in `.htmlhintrc`, also run by CI).
+
+**Docker:** a prebuilt image — `docker run -p 8080:80 ghcr.io/edeev/worldlang` (or `git.deev.su/edeev/worldlang`): nginx
+serves the site and proxies the course API at `/api`; open http://localhost:8080.
 
 ## License
 

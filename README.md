@@ -3,6 +3,7 @@
 **Русский** · [English](README.en.md)
 
 [![CI](https://github.com/EDeev/worldlang/actions/workflows/ci.yml/badge.svg)](https://github.com/EDeev/worldlang/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/EDeev/worldlang)](https://github.com/EDeev/worldlang/releases)
 
 Экзаменационный проект по «Основам веб-технологий»: сайт онлайн-школы иностранных языков с каталогом
 курсов и репетиторов, заявками, личным кабинетом и картой учебных ресурсов на учебном API.
@@ -27,6 +28,9 @@
 комментарии) и откройте `index.html`.
 
 Проверки: `node --check js/*.js` и `npx htmlhint *.html` (правила — в `.htmlhintrc`, их же гоняет CI).
+
+**Docker:** готовый образ — `docker run -p 8080:80 ghcr.io/edeev/worldlang` (или `git.deev.su/edeev/worldlang`): nginx
+отдаёт сайт и сам проксирует учебный API на `/api`, сайт откроется на http://localhost:8080.
 
 ## Лицензия
 
