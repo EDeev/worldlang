@@ -2,7 +2,7 @@
 
 [Русский](README.md) · **English**
 
-[![CI](https://github.com/EDeev/webdev-exam-2025-1-devik/actions/workflows/ci.yml/badge.svg)](https://github.com/EDeev/webdev-exam-2025-1-devik/actions/workflows/ci.yml)
+[![CI](https://github.com/EDeev/worldlang/actions/workflows/ci.yml/badge.svg)](https://github.com/EDeev/worldlang/actions/workflows/ci.yml)
 
 Exam project for the "Web Technologies Basics" course: an online language school site with a course and
 tutor catalog, applications, a personal account and a map of learning places, built on the course API.

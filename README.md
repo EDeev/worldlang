@@ -2,7 +2,7 @@
 
 **Русский** · [English](README.en.md)
 
-[![CI](https://github.com/EDeev/webdev-exam-2025-1-devik/actions/workflows/ci.yml/badge.svg)](https://github.com/EDeev/webdev-exam-2025-1-devik/actions/workflows/ci.yml)
+[![CI](https://github.com/EDeev/worldlang/actions/workflows/ci.yml/badge.svg)](https://github.com/EDeev/worldlang/actions/workflows/ci.yml)
 
 Экзаменационный проект по «Основам веб-технологий»: сайт онлайн-школы иностранных языков с каталогом
 курсов и репетиторов, заявками, личным кабинетом и картой учебных ресурсов на учебном API.
